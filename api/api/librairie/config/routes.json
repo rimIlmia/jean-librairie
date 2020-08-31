@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/librairies",
+      "handler": "librairie.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/librairies/count",
+      "handler": "librairie.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/librairies/:id",
+      "handler": "librairie.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/librairies",
+      "handler": "librairie.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/librairies/:id",
+      "handler": "librairie.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/librairies/:id",
+      "handler": "librairie.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "users-permissions_user",
+  "info": {
+    "name": "utilisateur",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "configurable": false,
+      "required": true,
+      "unique": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "role": {
+      "model": "role",
+      "via": "users",
+      "plugin": "users-permissions",
+      "configurable": false
+    },
+    "nom": {
+      "type": "string",
+      "required": true
+    },
+    "prenom": {
+      "type": "string",
+      "required": true
+    },
+    "date_naissance": {
+      "type": "datetime",
+      "required": true
+    },
+    "date_inscription": {
+      "type": "datetime"
+    },
+    "derniere_cnx": {
+      "type": "datetime"
+    },
+    "empreint": {
+      "via": "utilisateur",
+      "model": "empreint"
+    }
+  }
+}

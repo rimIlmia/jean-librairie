@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/empreints",
+      "handler": "empreint.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/empreints/count",
+      "handler": "empreint.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/empreints/:id",
+      "handler": "empreint.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/empreints",
+      "handler": "empreint.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/empreints/:id",
+      "handler": "empreint.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/empreints/:id",
+      "handler": "empreint.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

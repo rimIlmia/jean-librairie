@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "livres",
+  "info": {
+    "name": "livre"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "resume": {
+      "type": "string"
+    },
+    "date_publication": {
+      "type": "date"
+    },
+    "disponibilte": {
+      "type": "boolean"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "langue": {
+      "type": "enumeration",
+      "enum": [
+        "fr",
+        "ag",
+        "it",
+        "al"
+      ]
+    },
+    "categorie": {
+      "model": "categorie"
+    },
+    "auteur": {
+      "model": "auteur",
+      "via": "livres"
+    },
+    "empreint": {
+      "via": "livre",
+      "model": "empreint"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auteurs",
+  "info": {
+    "name": "auteur"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": true
+    },
+    "prenom": {
+      "type": "string",
+      "required": true
+    },
+    "annee_naissance": {
+      "type": "integer"
+    },
+    "nationalite": {
+      "type": "string"
+    },
+    "livres": {
+      "via": "auteur",
+      "collection": "livre"
+    }
+  }
+}

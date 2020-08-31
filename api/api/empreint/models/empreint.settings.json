@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "empreints",
+  "info": {
+    "name": "Empreint"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "livre": {
+      "model": "livre",
+      "via": "empreint"
+    },
+    "utilisateur": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "empreint"
+    },
+    "date_empreint": {
+      "type": "datetime"
+    },
+    "date_retour": {
+      "type": "datetime"
+    }
+  }
+}

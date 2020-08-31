@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fonctionalites",
+  "info": {
+    "name": "fonctionalite"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "ordre": {
+      "type": "integer"
+    }
+  }
+}
