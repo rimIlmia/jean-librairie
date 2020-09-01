@@ -7,7 +7,7 @@ export const getBooks = () => {
         dispatch({ type: 'FETCH_BOOKS' });
 
         return api
-            .get('/livres')
+            .get('livres')
             .then(res=> dispatch({ type: 'SET_BOOKS', payload: res.data }))
             .catch(error => {
                 throw error;
@@ -20,7 +20,7 @@ export const getBorrowedBooks = () => {
         dispatch({ type: 'FETCH_BORROWED_BOOKS' });
         
         return api
-            .get('/user-borrows-books')
+            .get('empreints')
             .then(res => dispatch({ type: 'SET_BORROWED_BOOKS', payload: res.data }))
             .catch(err => console.log(err))
     }
@@ -36,14 +36,13 @@ export const borrowBook = (get, userId, id) => {
 
         if(get == 'borrow'){
             const body = {
-                borrowDate: new Date(),
-                book: id.id,
-                status: 'pending',
-                user: userId
+                date_empreint: new Date(),
+                livre: id.id,
+                utilisateur: userId
             }
-            return api.post('/user-borrows-books', body)
+            return api.post('empreints', body)
             .then(res => {
-                    api.put(`/books/${id.id}`, { available: false })
+                    api.put(`livres/${id.id}`, { disponibilte: false })
                     .then(result => {
                         getBooks()
                         getBorrowedBooks()
@@ -54,12 +53,11 @@ export const borrowBook = (get, userId, id) => {
         }
         if(get == 'return'){
             const body = {
-                returnDate: new Date(),
-                status: 'returned'
+                date_retour: new Date(),
             }
-            return api.put(`/user-borrows-books/${id.id}`, body)
-            .then(res => {cd 
-                api.put(`/books/${id.bookId}`, { available: true })
+            return api.put(`empreints/${id.id}`, body)
+            .then(res => {
+                api.put(`livres/${id.bookId}`, { disponibilte: true })
                 .then(result =>  {
                     getBooks()
                     getBorrowedBooks()
