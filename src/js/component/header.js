@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearToken } from '../utils/local-storage';
 
-const Nav = () => {
+const Header = () => {
 
     const dispatch = useDispatch()
     const userIslogged = useSelector(state => state.auth.user.isLogged)
@@ -12,6 +12,7 @@ const Nav = () => {
 
 
     return (
+        <header>
             <nav>
                 <ul>
                     <li>
@@ -21,7 +22,7 @@ const Nav = () => {
                         userIslogged ?
                             (
                                 <li>
-                                    <span>{user.username}</span>
+                                    <span>{user.email}</span>
                                     <button onClick={() => { dispatch({type: "CLEAR_USER"}); clearToken() }}>Logout</button>
                                 </li>
                             ) :
@@ -40,7 +41,8 @@ const Nav = () => {
                     </li>
                 </ul>
             </nav>
+        </header>    
     )
 }
 
-export default Nav;
+export default Header;
