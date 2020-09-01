@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearToken } from '../utils/local-storage';
 
-const Header = () => {
+const Nav = () => {
 
     const dispatch = useDispatch()
     const userIslogged = useSelector(state => state.auth.user.isLogged)
@@ -43,4 +43,4 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default Nav;
