@@ -1,43 +1,46 @@
 import { combineReducers } from "redux";
 import api from '../utils/api';
 
-export const getFunctions = () => {
+export const getActivity = () => {
     return dispatch => {
-        dispatch({ type: 'FETCH_FUNCTIONS' });
+        dispatch({ type: 'FETCH_ACTIVITY' });
 
         return api
-            .get('/fonctionalites')
-            .then(res=> dispatch({ type: 'SET_FUNCTIONS', payload: res.data }))
+            .get('fonctionalites')
+            .then(res=> {
+                console.log(res);
+                dispatch({ type: 'SET_ACTIVITY', payload: res.data })
+            })
             .catch(error => {
                 throw error;
             })
     }
 }
 
-const defaultAllFunctions = {
+const defaultAllActivity = {
     isLoading: false,
     functions: []
 }
 
-const allFunctions = (state = defaultAllFunctions, action) => {
-    const allFunctionsAction = {
-        "SET_FUNCTIONS": { isLoading: true, functions: action.payload },
-        "CLEAR_FUNCTIONS": defaultAllFunctions
+const allActivity = (state = defaultAllActivity, action) => {
+    const allActivityAction = {
+        "SET_ACTIVITY": { isLoading: true, activity: action.payload },
+        "CLEAR_FUNCTIONS": defaultAllActivity
     }
-    return allFunctionsAction[action.type] || state;
+    return allActivityAction[action.type] || state;
 }
 
 
-const functionsFunction = (state = false, action) => {
-    const functionsFuntionAction = {
-        "FETCH_FUNCTIONS": true
+const activityFunction = (state = false, action) => {
+    const activityFuntionAction = {
+        "FETCH_ACTIVITY": true
     }
-    return functionsFuntionAction[action.type] || state;
+    return activityFuntionAction[action.type] || state;
 }
 
-const functions = combineReducers({
-    allFunctions,
-    functionsFunction
+const activity = combineReducers({
+    allActivity,
+    activityFunction
 });
 
-export default functions;
+export default activity;

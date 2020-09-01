@@ -17,6 +17,7 @@ import Protected from './pages/protected';
 import api, { addAuth } from './utils/api';
 import { getStorageToken, clearToken } from './utils/local-storage';
 import { getBooks } from './store/bookStore';
+import { getActivity } from './store/aboutStore';
 
 const App = () => {
 
@@ -32,8 +33,9 @@ const App = () => {
                 dispatch({type: 'SET_USER_LOGGED', payload: false});
                 clearToken();
             })
+        dispatch(getActivity());
+        dispatch(getBooks());
 
-        dispatch(getBooks())
     }, [])
 
     return (

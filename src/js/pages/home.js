@@ -12,9 +12,9 @@ const Home = () => {
             { booksLoad && books.map((book, i) => {
                     return (
                         <div className="book" key={i}>
-                            <h2>{book.name}</h2>
-                            <p>{book.synopsis}</p>
-                            <p>{book.author.firstName}</p>
+                            <h2>{book.titre}</h2>
+                            <p>{book.resume}</p>
+                            <p>{book.auteur.nom}</p>
                         </div>
                         )
                     })
