@@ -7,7 +7,7 @@ export const getBooks = () => {
         dispatch({ type: 'FETCH_BOOKS' });
 
         return api
-            .get('/books')
+            .get('/livres')
             .then(res=> dispatch({ type: 'SET_BOOKS', payload: res.data }))
             .catch(error => {
                 throw error;
@@ -58,7 +58,7 @@ export const borrowBook = (get, userId, id) => {
                 status: 'returned'
             }
             return api.put(`/user-borrows-books/${id.id}`, body)
-            .then(res => {
+            .then(res => {cd 
                 api.put(`/books/${id.bookId}`, { available: true })
                 .then(result =>  {
                     getBooks()

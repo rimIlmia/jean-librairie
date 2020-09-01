@@ -9,6 +9,7 @@ import {
 import Nav from './component/nav';
 import RouteGuard from './component/routeGuard';
 import Home from './pages/home';
+import About from './pages/about';
 import Register from './pages/register';
 import Login from './pages/login';
 import Protected from './pages/protected';
@@ -42,6 +43,9 @@ const App = () => {
                 <Switch>
                     <Route exact path="/">
                         <Home />
+                    </Route>
+                    <Route exact path="/about">
+                        <About />
                     </Route>
                     <Route path="/register">
 					    <Register />
