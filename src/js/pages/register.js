@@ -5,7 +5,9 @@ const Register = () => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState(null);
-    const [pseudo, setPseudo] = useState('');
+    const [nom, setNom] = useState('');
+    const [dateN, setDateN] = useState(null);
+    const [prenom, setPrenom] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passConfirm, setPassConfirm] = useState('');
@@ -17,12 +19,15 @@ const Register = () => {
         setIsLoading(true);
 
         const body = {
+            nom,
+            prenom,
+            date_naissance: dateN,
             email,
             password,
             passConfirm
         }
 
-        api.post('user/register', body)
+        api.post('auth/local/register', body)
         .then(response => {
             setMessage(response.data.message)
         })
@@ -35,8 +40,16 @@ const Register = () => {
     return(
         <form onSubmit={handleSubmit} >
         <div className="">
-            <label>Pseudo</label>
-            <input type="text" onChange={(ev)=> setPseudo(ev.target.value)} name='pseudo' value={pseudo} required />
+            <label>Nom</label>
+            <input type="text" onChange={(ev)=> setNom(ev.target.value)} name='nom' value={nom} required />
+        </div>
+        <div className="">
+            <label>Prenom</label>
+            <input type="text" onChange={(ev)=> setPrenom(ev.target.value)} name='prenom' value={prenom} required />
+        </div>
+        <div className="">
+            <label>Date de nassance</label>
+            <input type="date" onChange={(ev)=> setDateN(ev.target.value)} name='date_naissance' value={dateN} required />
         </div>
         <div className="">
             <label>Email</label>
