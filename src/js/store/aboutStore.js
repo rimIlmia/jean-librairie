@@ -25,7 +25,7 @@ const defaultAllActivity = {
 const allActivity = (state = defaultAllActivity, action) => {
     const allActivityAction = {
         "SET_ACTIVITY": { isLoading: true, activity: action.payload },
-        "CLEAR_FUNCTIONS": defaultAllActivity
+        "CLEAR_ACTIVITY": defaultAllActivity
     }
     return allActivityAction[action.type] || state;
 }
