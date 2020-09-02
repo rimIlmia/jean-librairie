@@ -19,7 +19,7 @@ const Books = (props) => {
     );
   const handleClick = (event) => {
     dispatch(getBooks(event.target.value));
-    //setCurrentFilter(event.target.value);
+    //setCurrentFilter(event.target.value);test
   };
   const date = new Date(Date.now());
   const previousMonth = new Date(
