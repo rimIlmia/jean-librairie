@@ -34,7 +34,7 @@ const Login = () => {
     
     useEffect(() => {
         const waitRedirect = setTimeout(() => {
-            if(logged && !isLoading) history.push('/');
+            if(logged && !isLoading) history.push('/dashboard');
         }, 3000);
         return () => clearTimeout(waitRedirect);
     },[isLoading])
