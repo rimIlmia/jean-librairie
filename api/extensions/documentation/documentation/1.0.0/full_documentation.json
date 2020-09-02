@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/01/2020 2:27:24 PM"
+    "x-generation-date": "09/02/2020 11:19:42 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5925,6 +5925,49 @@
           "nom": {
             "type": "string"
           },
+          "livres": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "titre": {
+                "type": "string"
+              },
+              "resume": {
+                "type": "string"
+              },
+              "date_publication": {
+                "type": "string"
+              },
+              "disponibilte": {
+                "type": "boolean"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "langue": {
+                "type": "string"
+              },
+              "categorie": {
+                "type": "string"
+              },
+              "auteur": {
+                "type": "string"
+              },
+              "empreint": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "created_by": {
             "required": [
               "id",
@@ -6021,6 +6064,9 @@
         ],
         "properties": {
           "nom": {
+            "type": "string"
+          },
+          "livres": {
             "type": "string"
           },
           "created_by": {
@@ -6694,6 +6740,9 @@
                 "type": "string"
               },
               "nom": {
+                "type": "string"
+              },
+              "livres": {
                 "type": "string"
               },
               "created_by": {

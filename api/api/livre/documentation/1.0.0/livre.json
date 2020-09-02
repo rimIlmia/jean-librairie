@@ -558,6 +558,9 @@
               "nom": {
                 "type": "string"
               },
+              "livres": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },

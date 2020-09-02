@@ -5,7 +5,7 @@ export const getBooks = (filter) => {
   return (dispatch) => {
     dispatch({ type: "FETCH_BOOKS" });
     return api
-      .get(`/livres/${filter ? filter : ""}`)
+      .get(`/livres${filter ? filter : ""}`)
       .then((response) => {
         const books = response.data;
         if (books) {

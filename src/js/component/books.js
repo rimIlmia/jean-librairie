@@ -8,10 +8,10 @@ const Books = (props) => {
   const categories = useSelector((state) => state.categories.collection);
   const books = useSelector((state) => state.books.allBooks);
   const booksAreLoading = useSelector((state) => state.books.isLoading);
-  const [currentFilter, setCurrentFilter] = useState("");
-
+  // const [currentFilter, setCurrentFilter] = useState("");
   useEffect(() => {
     dispatch(getCategories());
+    dispatch(getBooks("?created_at_gt=" + newd + "&_sort=created_at:ASC"));
   }, []);
 
   if (booksAreLoading)
@@ -20,22 +20,29 @@ const Books = (props) => {
     );
   const handleClick = (event) => {
     dispatch(getBooks(event.target.value));
-    setCurrentFilter(event.target.value);
+    // setCurrentFilter(event.target.value);
   };
-  //   const handleFilter = (event) => {
-
-  //   };
-
+  const date = new Date(Date.now());
+  const previousMonth = new Date(
+    date.getFullYear(),
+    date.getMonth() - 1,
+    date.getDate()
+  );
+  const newd =
+    previousMonth.getFullYear() +
+    "-" +
+    ("0" + (previousMonth.getMonth() + 1)).slice(-2) +
+    "-" +
+    ("0" + previousMonth.getDate()).slice(-2);
   return (
     <section>
-      {/* <header>
-        <select value={currentFilter} onChange={handleFilter}>
-          <option value={""}>Tous</option>
-          <option value={"?_sort=titre:ASC"}>Titre alphabetique</option>
-          <option value={"?_sort=created_at:ASC"}>Date de création</option>
-          <option value={"?dispo=false"}>Livre(s) disponible(s)</option>
-        </select>
-      </header> */}
+      <button
+        onClick={handleClick}
+        value={"?created_at_gt=" + newd + "&_sort=created_at:ASC"}
+      >
+        Nouveau
+      </button>
+
       {categories && categories.length > 0 ? (
         categories.map((cat) => {
           return (
@@ -47,7 +54,7 @@ const Books = (props) => {
           );
         })
       ) : (
-        <span>No cats</span>
+        <span></span>
       )}
 
       <ul className="flex flex-col">
