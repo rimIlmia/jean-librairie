@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearToken } from '../utils/local-storage';
 
-const Nav = () => {
+const Header = () => {
 
     const dispatch = useDispatch()
     const userIslogged = useSelector(state => state.auth.user.isLogged)
@@ -12,35 +12,35 @@ const Nav = () => {
 
 
     return (
+        <header>
             <nav>
                 <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
                     {
                         userIslogged ?
                             (
                                 <li>
-                                    <span>{user.username}</span>
+                                    <div className="userIntro">
+                                        <p>{user.prenom} {user.nom}</p>
+
+                                    </div>
+                                    <span>{user.email}</span>
                                     <button onClick={() => { dispatch({type: "CLEAR_USER"}); clearToken() }}>Logout</button>
                                 </li>
                             ) :
                             (
                                 <li>
-                                    <Link to="/login">Login</Link>
+                                    <Link to="/login">Connexion</Link>
                                 </li>
                             )
                     }
                     { !userIslogged &&
                     <li>
-                        <Link to="/register">Register</Link>
+                        <Link to="/register">Inscription</Link>
                     </li>}
-                    <li>
-                        <Link to="/protected">Protected</Link>
-                    </li>
                 </ul>
             </nav>
+        </header>    
     )
 }
 
-export default Nav;
+export default Header;

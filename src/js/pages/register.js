@@ -6,7 +6,7 @@ const Register = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState(null);
     const [nom, setNom] = useState('');
-    const [dateN, setDateN] = useState(null);
+    const [dateN, setDateN] = useState();
     const [prenom, setPrenom] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
