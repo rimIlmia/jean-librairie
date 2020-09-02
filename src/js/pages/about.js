@@ -18,8 +18,9 @@ const About = () => {
                         userIslogged ?
                             (
                                 <li>
-                                    <span>{user.username}</span>
+                                    <span>Bonjour {user.nom}</span>
                                 </li>
+
                             ) :
 
                             activityLoad && activity.map((about, i)=>{

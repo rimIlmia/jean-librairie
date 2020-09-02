@@ -6,7 +6,7 @@ import {
     Route
 } from "react-router-dom";
 
-import Nav from './component/nav';
+import Header from './component/header';
 import RouteGuard from './component/routeGuard';
 import Home from './pages/home';
 import About from './pages/about';
@@ -40,7 +40,7 @@ const App = () => {
 
     return (
         <Router>
-            <Nav />
+            <Header />
             <div>
                 <Switch>
                     <Route exact path="/">
