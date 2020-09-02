@@ -7,7 +7,7 @@ const Books = (props) => {
   const categories = useSelector((state) => state.categories.collection);
   const books = useSelector((state) => state.books.allBooks);
   const booksAreLoading = useSelector((state) => state.books.isLoading);
-  // const [currentFilter, setCurrentFilter] = useState("");
+  const [currentFilter, setCurrentFilter] = useState("");
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getBooks("?created_at_gt=" + newd + "&_sort=created_at:ASC"));
@@ -19,7 +19,7 @@ const Books = (props) => {
     );
   const handleClick = (event) => {
     dispatch(getBooks(event.target.value));
-    // setCurrentFilter(event.target.value);
+    //setCurrentFilter(event.target.value);
   };
   const date = new Date(Date.now());
   const previousMonth = new Date(
@@ -35,28 +35,32 @@ const Books = (props) => {
     ("0" + previousMonth.getDate()).slice(-2);
   return (
     <section>
-      <button
-        onClick={handleClick}
-        value={"?created_at_gt=" + newd + "&_sort=created_at:ASC"}
-      >
-        Nouveau
-      </button>
+      <ul>
+        <li
+          onClick={handleClick}
+          value={"?created_at_gt=" + newd + "&_sort=created_at:ASC"}
+        >
+          Nouveau
+        </li>
 
-      {categories && categories.length > 0 ? (
-        categories.map((cat) => {
-          if (cat.livres.length > 0)
-            return (
-              <span className="" key={cat.id}>
-                <button onClick={handleClick} value={"?categorie.id=" + cat.id}>
+        {categories && categories.length > 0 ? (
+          categories.map((cat) => {
+            if (cat.livres.length > 0)
+              return (
+                <li
+                  className=""
+                  key={cat.id}
+                  onClick={handleClick}
+                  value={"?categorie.id=" + cat.id}
+                >
                   {cat.nom}
-                </button>
-              </span>
-            );
-        })
-      ) : (
-        <span></span>
-      )}
-
+                </li>
+              );
+          })
+        ) : (
+          <span></span>
+        )}
+      </ul>
       <ul className="flex flex-col">
         {books && books.length > 0 ? (
           books.map((book) => {
