@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/02/2020 11:19:42 AM"
+    "x-generation-date": "09/02/2020 11:50:33 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5773,13 +5773,13 @@
                 "langue": {
                   "type": "string"
                 },
-                "categorie": {
-                  "type": "string"
-                },
                 "auteur": {
                   "type": "string"
                 },
                 "empreint": {
+                  "type": "string"
+                },
+                "categorie": {
                   "type": "string"
                 },
                 "created_by": {
@@ -5926,45 +5926,48 @@
             "type": "string"
           },
           "livres": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "titre": {
-                "type": "string"
-              },
-              "resume": {
-                "type": "string"
-              },
-              "date_publication": {
-                "type": "string"
-              },
-              "disponibilte": {
-                "type": "boolean"
-              },
-              "slug": {
-                "type": "string"
-              },
-              "langue": {
-                "type": "string"
-              },
-              "categorie": {
-                "type": "string"
-              },
-              "auteur": {
-                "type": "string"
-              },
-              "empreint": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titre": {
+                  "type": "string"
+                },
+                "resume": {
+                  "type": "string"
+                },
+                "date_publication": {
+                  "type": "string"
+                },
+                "disponibilte": {
+                  "type": "boolean"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "langue": {
+                  "type": "string"
+                },
+                "auteur": {
+                  "type": "string"
+                },
+                "empreint": {
+                  "type": "string"
+                },
+                "categorie": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -6067,7 +6070,10 @@
             "type": "string"
           },
           "livres": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"
@@ -6111,13 +6117,13 @@
               "langue": {
                 "type": "string"
               },
-              "categorie": {
-                "type": "string"
-              },
               "auteur": {
                 "type": "string"
               },
               "empreint": {
+                "type": "string"
+              },
+              "categorie": {
                 "type": "string"
               },
               "created_by": {
@@ -6730,29 +6736,6 @@
               "al"
             ]
           },
-          "categorie": {
-            "required": [
-              "id",
-              "nom"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "nom": {
-                "type": "string"
-              },
-              "livres": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "auteur": {
             "required": [
               "id",
@@ -6808,6 +6791,32 @@
               },
               "date_retour": {
                 "type": "datetime"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "categorie": {
+            "required": [
+              "id",
+              "nom"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "nom": {
+                "type": "string"
+              },
+              "livres": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -6933,13 +6942,13 @@
               "al"
             ]
           },
-          "categorie": {
-            "type": "string"
-          },
           "auteur": {
             "type": "string"
           },
           "empreint": {
+            "type": "string"
+          },
+          "categorie": {
             "type": "string"
           },
           "created_by": {

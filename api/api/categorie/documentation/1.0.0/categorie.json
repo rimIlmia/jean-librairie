@@ -527,45 +527,48 @@
             "type": "string"
           },
           "livres": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "titre": {
-                "type": "string"
-              },
-              "resume": {
-                "type": "string"
-              },
-              "date_publication": {
-                "type": "string"
-              },
-              "disponibilte": {
-                "type": "boolean"
-              },
-              "slug": {
-                "type": "string"
-              },
-              "langue": {
-                "type": "string"
-              },
-              "categorie": {
-                "type": "string"
-              },
-              "auteur": {
-                "type": "string"
-              },
-              "empreint": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titre": {
+                  "type": "string"
+                },
+                "resume": {
+                  "type": "string"
+                },
+                "date_publication": {
+                  "type": "string"
+                },
+                "disponibilte": {
+                  "type": "boolean"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "langue": {
+                  "type": "string"
+                },
+                "auteur": {
+                  "type": "string"
+                },
+                "empreint": {
+                  "type": "string"
+                },
+                "categorie": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -668,7 +671,10 @@
             "type": "string"
           },
           "livres": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"

@@ -14,7 +14,8 @@
       "required": true
     },
     "livres": {
-      "collection": "livre"
+      "collection": "livre",
+      "via": "categorie"
     }
   }
 }

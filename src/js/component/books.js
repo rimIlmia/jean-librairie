@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBooks } from "../store/bookStore";
 import { getCategories } from "../store/categorieStore";
-
 const Books = (props) => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.collection);
@@ -45,13 +44,14 @@ const Books = (props) => {
 
       {categories && categories.length > 0 ? (
         categories.map((cat) => {
-          return (
-            <span className="" key={cat.id}>
-              <button onClick={handleClick} value={"?categorie.id=" + cat.id}>
-                {cat.nom}
-              </button>
-            </span>
-          );
+          if (cat.livres.length > 0)
+            return (
+              <span className="" key={cat.id}>
+                <button onClick={handleClick} value={"?categorie.id=" + cat.id}>
+                  {cat.nom}
+                </button>
+              </span>
+            );
         })
       ) : (
         <span></span>
