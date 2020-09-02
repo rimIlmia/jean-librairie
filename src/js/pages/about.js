@@ -10,32 +10,47 @@ const About = () => {
     const userIslogged = useSelector(state => state.auth.user.isLogged)
     const user = useSelector(state => state.auth.user.detail)
 
+
     return (
-        <div>
-            <h1>Ma librairie</h1>
-
-            {
-                        userIslogged ?
-                            (
-                                <li>
-                                    <span>Bonjour {user.nom}</span>
-                                </li>
-
-                            ) :
-
-                            activityLoad && activity.map((about, i)=>{
+                <div>
+                    <h1>Ma librairie</h1>
+            
+                    { 
+                        userIslogged && user.role.name == 'admin' ? (
+                            activityLoad && activity.map((about, i )=>{
                                 return(
-                                (
-                                    <div className="function" key={i}>
-                                        <h2>{about.titre}</h2>
-                                        <p>{about.description}</p>
-                                        <img src={`http://localhost:1337${about.image[0].url}`}></img>
-                                    </div> 
-                                )
+                                    (
+                                        <div className="function" key={i}>
+                                            <h2>{about.titre}</h2>
+                                            <p>{about.description}</p>
+                                            <img src={`http://localhost:1337${about.image[0].url}`} />
+                                            
+                                            <p>Bonjour {user.nom} vous etes</p>
+                                        <p>{typeof(user.role.name)}</p>
+                                        <button>Editer</button>
+                                        </div> 
+                                        
+                                    )
                                 )
                             })
+                        )
+                            :
+                            
+                        activityLoad && activity.map((about, i)=>{
+                            return(
+                                    (
+                                        <>
+                                        <div className="function" key={i}>
+                                            <h2>{about.titre}</h2>
+                                            <p>{about.description}</p>
+                                            <img src={`http://localhost:1337${about.image[0].url}`}></img>
+                                        </div> 
+                                        </>
+                                    )
+                            )
+                        })                                    
                     }
-        </div>
+                </div>
             )
 }
 
