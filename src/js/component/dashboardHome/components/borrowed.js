@@ -21,7 +21,7 @@ const Borrowed = () => {
             <section className="borrowedBooks">
                 <h1>Borrowed Books</h1>
                 { borrowedBooksLoad && booksBorrowed.map((borrowed, i) => {
-                    if(!borrowed.disponibilte){
+                    if(!borrowed.livre.disponibilte){
                         const date = new Date(borrowed.date_empreint);
                         date.setDate(date.getDate() + 15);
                         return (
@@ -38,9 +38,9 @@ const Borrowed = () => {
             <section className="returnedBooks">
                 <h1>Returner Books</h1>
                 { borrowedBooksLoad && booksBorrowed.map((borrowed, i) => {
-                    if(borrowed.disponibilte){
+                    if(borrowed.livre.disponibilte){
                         return (
-                            <div className="borrowed" key={i}>
+                            <div className="borrowed" key={`returned${i}`}>
                                 <h2>{borrowed.livre.titre}</h2>
                                 <p>borrowed at: {borrowed.date_empreint}</p>
                                 <p>returned: { borrowed.date_retour}</p>

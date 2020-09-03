@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/03/2020 10:03:42 AM"
+    "x-generation-date": "09/03/2020 3:11:58 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -6133,8 +6133,11 @@
               "derniere_cnx": {
                 "type": "datetime"
               },
-              "empreint": {
-                "type": "string"
+              "empreints": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -7204,8 +7207,11 @@
                 "derniere_cnx": {
                   "type": "datetime"
                 },
-                "empreint": {
-                  "type": "string"
+                "empreints": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -7425,31 +7431,34 @@
           "derniere_cnx": {
             "type": "datetime"
           },
-          "empreint": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "livre": {
-                "type": "string"
-              },
-              "utilisateur": {
-                "type": "string"
-              },
-              "date_empreint": {
-                "type": "datetime"
-              },
-              "date_retour": {
-                "type": "datetime"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+          "empreints": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "livre": {
+                  "type": "string"
+                },
+                "utilisateur": {
+                  "type": "string"
+                },
+                "date_empreint": {
+                  "type": "datetime"
+                },
+                "date_retour": {
+                  "type": "datetime"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -7595,8 +7604,11 @@
           "derniere_cnx": {
             "type": "datetime"
           },
-          "empreint": {
-            "type": "string"
+          "empreints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"
