@@ -7,11 +7,11 @@ module.exports = ({ env }) => ({
         client: "mysql",
         host: "localhost",
         port: 3306,
-        username: "admin",
-        password: "1234",
-        database: "jean-librairie"
+        username: "root",
+        password: "",
+        database: "jean-librairie",
       },
-      options: {}
-    }
-  }
+      options: {},
+    },
+  },
 });

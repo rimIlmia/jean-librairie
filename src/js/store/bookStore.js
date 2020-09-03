@@ -1,113 +1,58 @@
 import { combineReducers } from "redux";
-import api from '../utils/api';
-
-
-export const getBooks = () => {
-    return dispatch => {
-        dispatch({ type: 'FETCH_BOOKS' });
-
-        return api
-            .get('livres')
-            .then(res=> dispatch({ type: 'SET_BOOKS', payload: res.data }))
-            .catch(error => {
-                throw error;
-            })
-    }
-}
-
-export const getBorrowedBooks = () => {
-    return dispatch => {   
-        dispatch({ type: 'FETCH_BORROWED_BOOKS' });
-        
-        return api
-            .get('empreints')
-            .then(res => dispatch({ type: 'SET_BORROWED_BOOKS', payload: res.data }))
-            .catch(err => console.log(err))
-    }
-} 
-
-
-
-export const borrowBook = (get, userId, id) => {
-    return dispatch => {
-        dispatch({ type: "CLEAR_BOOKS" });
-        dispatch({ type: "CLEAR_BORROWED_BOOKS" });
-        dispatch({ type: "BORROW_BOOK" });
-
-        if(get == 'borrow'){
-            const body = {
-                date_empreint: new Date(),
-                livre: id.id,
-                utilisateur: userId
-            }
-            return api.post('empreints', body)
-            .then(res => {
-                    api.put(`livres/${id.id}`, { disponibilte: false })
-                    .then(result => {
-                        getBooks()
-                        getBorrowedBooks()
-                    })
-                    .catch(err => console.log(err))
-            })
-            .catch(err => console.log(err))
+import api from "../utils/api";
+export const getBooks = (filter) => {
+  return (dispatch) => {
+    dispatch({ type: "FETCH_BOOKS" });
+    return api
+      .get(`/livres${filter ? filter : ""}`)
+      .then((response) => {
+        const books = response.data;
+        if (books) {
+          dispatch({ type: "SET_BOOKS", payload: books });
         }
-        if(get == 'return'){
-            const body = {
-                date_retour: new Date(),
-            }
-            return api.put(`empreints/${id.id}`, body)
-            .then(res => {
-                api.put(`livres/${id.bookId}`, { disponibilte: true })
-                .then(result =>  {
-                    getBooks()
-                    getBorrowedBooks()
-                })
-                .catch(err => console.log(err))
-            })
-            .catch(err => console.log(err))
-        }
-    }
-}
+      })
+      .catch((error) => {
+        throw error;
+      });
+  };
+};
 
-const defaultAllBooks = {
-    isLoading: false,
-    books: []
-}
+const allBooks = (state = null, action) => {
+  switch (action.type) {
+    case "SET_BOOKS":
+      return action.payload;
+    case "CLEAR_BOOKS":
+      return null;
+    default:
+      return state;
+  }
+};
+const isLoading = (state = false, action) => {
+  switch (action.type) {
+    case "FETCH_BOOKS":
+      return true;
+    case "SET_BOOKS":
+      return false;
+    default:
+      return state;
+  }
+};
 
-const defaultBorrowedBooks = {
-    isLoading: false,
-    books: []
-}
-
-const allBooks = (state = defaultAllBooks, action) => {
-    const allBooksAction = {
-        "SET_BOOKS": { isLoading: true, books: action.payload },
-        "CLEAR_BOOKS": defaultAllBooks
-    }
-    return allBooksAction[action.type] || state;
-}
-
-const borrowedBooks = (state = defaultBorrowedBooks, action) => {
-    const borrowedBooksAction = {
-        "SET_BORROWED_BOOKS": { isLoading: true, books: action.payload },
-        "CLEAR_BORROWED_BOOKS": defaultBorrowedBooks
-    }
-    return borrowedBooksAction[action.type] || state;
-}
-
-const booksFunction = (state = false, action) => {
-    const booksFuntionAction = {
-        "FETCH_BOOKS": true,
-        "BORROW_BOOK": true
-    }
-    return booksFuntionAction[action.type] || state;
-}
+const selectedBook = (state = null, action) => {
+  switch (action.type) {
+    case "SELECT_BOOK":
+      return action.payload;
+    case "CLEAR_BOOK":
+      return null;
+    default:
+      return state;
+  }
+};
 
 const books = combineReducers({
-    allBooks,
-    borrowedBooks,
-    borrowBook,
-    booksFunction
+  allBooks,
+  isLoading,
+  selectedBook,
 });
 
 export default books;

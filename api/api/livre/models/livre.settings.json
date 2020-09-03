@@ -33,16 +33,17 @@
         "al"
       ]
     },
-    "categorie": {
-      "model": "categorie"
-    },
     "auteur": {
       "model": "auteur",
       "via": "livres"
     },
     "empreint": {
-      "via": "livre",
-      "model": "empreint"
+      "model": "empreint",
+      "via": "livre"
+    },
+    "categorie": {
+      "model": "categorie",
+      "via": "livres"
     }
   }
 }
