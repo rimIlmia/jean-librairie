@@ -1268,31 +1268,34 @@
           "derniere_cnx": {
             "type": "datetime"
           },
-          "empreint": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "livre": {
-                "type": "string"
-              },
-              "utilisateur": {
-                "type": "string"
-              },
-              "date_empreint": {
-                "type": "datetime"
-              },
-              "date_retour": {
-                "type": "datetime"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+          "empreints": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "livre": {
+                  "type": "string"
+                },
+                "utilisateur": {
+                  "type": "string"
+                },
+                "date_empreint": {
+                  "type": "datetime"
+                },
+                "date_retour": {
+                  "type": "datetime"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -1438,8 +1441,11 @@
           "derniere_cnx": {
             "type": "datetime"
           },
-          "empreint": {
-            "type": "string"
+          "empreints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"

@@ -11,7 +11,7 @@ import {
 import RouteGuard from "../../component/routeGuard";
 import Historybook from './components/history';
 import Profil from "./components/profil"
-import Borrowed from './components/boworred'
+import Borrowed from './components/borrowed'
 import { getBooks, getBorrowedBooks, borrowBook } from '../../store/bookStore';
 
 const DashboardHome = () => {

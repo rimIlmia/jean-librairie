@@ -548,13 +548,16 @@
               "langue": {
                 "type": "string"
               },
-              "categorie": {
-                "type": "string"
-              },
               "auteur": {
                 "type": "string"
               },
               "empreint": {
+                "type": "string"
+              },
+              "categorie": {
+                "type": "string"
+              },
+              "image": {
                 "type": "string"
               },
               "created_by": {
@@ -616,8 +619,11 @@
               "derniere_cnx": {
                 "type": "datetime"
               },
-              "empreint": {
-                "type": "string"
+              "empreints": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"

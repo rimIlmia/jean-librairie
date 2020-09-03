@@ -564,13 +564,16 @@
                 "langue": {
                   "type": "string"
                 },
-                "categorie": {
-                  "type": "string"
-                },
                 "auteur": {
                   "type": "string"
                 },
                 "empreint": {
+                  "type": "string"
+                },
+                "categorie": {
+                  "type": "string"
+                },
+                "image": {
                   "type": "string"
                 },
                 "created_by": {

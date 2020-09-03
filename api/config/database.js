@@ -6,12 +6,12 @@ module.exports = ({ env }) => ({
       settings: {
         client: "mysql",
         host: "localhost",
-        port: 3308,
+        port: 3306,
         username: "root",
         password: "",
-        database: "jean-librairie"
+        database: "jean-librairie",
       },
-      options: {}
-    }
-  }
+      options: {},
+    },
+  },
 });

@@ -575,8 +575,11 @@
                 "derniere_cnx": {
                   "type": "datetime"
                 },
-                "empreint": {
-                  "type": "string"
+                "empreints": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"

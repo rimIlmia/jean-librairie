@@ -12,6 +12,10 @@
     "nom": {
       "type": "string",
       "required": true
+    },
+    "livres": {
+      "via": "categorie",
+      "collection": "livre"
     }
   }
 }

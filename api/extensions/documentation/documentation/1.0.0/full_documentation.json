@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "09/02/2020 4:57:48 PM"
+    "x-generation-date": "09/03/2020 4:39:50 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5773,13 +5773,16 @@
                 "langue": {
                   "type": "string"
                 },
-                "categorie": {
-                  "type": "string"
-                },
                 "auteur": {
                   "type": "string"
                 },
                 "empreint": {
+                  "type": "string"
+                },
+                "categorie": {
+                  "type": "string"
+                },
+                "image": {
                   "type": "string"
                 },
                 "created_by": {
@@ -5925,6 +5928,55 @@
           "nom": {
             "type": "string"
           },
+          "livres": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titre": {
+                  "type": "string"
+                },
+                "resume": {
+                  "type": "string"
+                },
+                "date_publication": {
+                  "type": "string"
+                },
+                "disponibilte": {
+                  "type": "boolean"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "langue": {
+                  "type": "string"
+                },
+                "auteur": {
+                  "type": "string"
+                },
+                "empreint": {
+                  "type": "string"
+                },
+                "categorie": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "created_by": {
             "required": [
               "id",
@@ -6023,6 +6075,12 @@
           "nom": {
             "type": "string"
           },
+          "livres": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "created_by": {
             "type": "string"
           },
@@ -6065,13 +6123,16 @@
               "langue": {
                 "type": "string"
               },
-              "categorie": {
-                "type": "string"
-              },
               "auteur": {
                 "type": "string"
               },
               "empreint": {
+                "type": "string"
+              },
+              "categorie": {
+                "type": "string"
+              },
+              "image": {
                 "type": "string"
               },
               "created_by": {
@@ -6133,8 +6194,11 @@
               "derniere_cnx": {
                 "type": "datetime"
               },
-              "empreint": {
-                "type": "string"
+              "empreints": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -6684,26 +6748,6 @@
               "al"
             ]
           },
-          "categorie": {
-            "required": [
-              "id",
-              "nom"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "nom": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "auteur": {
             "required": [
               "id",
@@ -6759,6 +6803,99 @@
               },
               "date_retour": {
                 "type": "datetime"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "categorie": {
+            "required": [
+              "id",
+              "nom"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "nom": {
+                "type": "string"
+              },
+              "livres": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "image": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -6884,13 +7021,13 @@
               "al"
             ]
           },
-          "categorie": {
-            "type": "string"
-          },
           "auteur": {
             "type": "string"
           },
           "empreint": {
+            "type": "string"
+          },
+          "categorie": {
             "type": "string"
           },
           "created_by": {
@@ -7204,8 +7341,11 @@
                 "derniere_cnx": {
                   "type": "datetime"
                 },
-                "empreint": {
-                  "type": "string"
+                "empreints": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -7425,31 +7565,34 @@
           "derniere_cnx": {
             "type": "datetime"
           },
-          "empreint": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "livre": {
-                "type": "string"
-              },
-              "utilisateur": {
-                "type": "string"
-              },
-              "date_empreint": {
-                "type": "datetime"
-              },
-              "date_retour": {
-                "type": "datetime"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
+          "empreints": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "livre": {
+                  "type": "string"
+                },
+                "utilisateur": {
+                  "type": "string"
+                },
+                "date_empreint": {
+                  "type": "datetime"
+                },
+                "date_retour": {
+                  "type": "datetime"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -7595,8 +7738,11 @@
           "derniere_cnx": {
             "type": "datetime"
           },
-          "empreint": {
-            "type": "string"
+          "empreints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"
