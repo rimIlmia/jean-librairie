@@ -16,7 +16,7 @@
     "utilisateur": {
       "plugin": "users-permissions",
       "model": "user",
-      "via": "empreint"
+      "via": "empreints"
     },
     "date_empreint": {
       "type": "datetime"

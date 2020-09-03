@@ -72,9 +72,9 @@
     "derniere_cnx": {
       "type": "datetime"
     },
-    "empreint": {
+    "empreints": {
       "via": "utilisateur",
-      "model": "empreint"
+      "collection": "empreint"
     }
   }
 }

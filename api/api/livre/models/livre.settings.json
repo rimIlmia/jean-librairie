@@ -13,7 +13,7 @@
       "type": "string"
     },
     "resume": {
-      "type": "string"
+      "type": "text"
     },
     "date_publication": {
       "type": "date"

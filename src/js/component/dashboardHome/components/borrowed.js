@@ -40,7 +40,7 @@ const Borrowed = () => {
                 { borrowedBooksLoad && booksBorrowed.map((borrowed, i) => {
                     if(borrowed.livre.disponibilte){
                         return (
-                            <div className="borrowed" key={i}>
+                            <div className="borrowed" key={`returned${i}`}>
                                 <h2>{borrowed.livre.titre}</h2>
                                 <p>borrowed at: {borrowed.date_empreint}</p>
                                 <p>returned: { borrowed.date_retour}</p>
