@@ -2,30 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBooks } from "../store/bookStore";
 import { getCategories } from "../store/categorieStore";
-import "../../sass/Browse.css";
+import "../../sass/browse.css";
 
 const Browse = (props) => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.collection);
-  const books = useSelector((state) => state.books.allBooks);
-  const booksAreLoading = useSelector((state) => state.books.isLoading);
+  const books = useSelector((state) => state.books.allBooks.books);
+  const booksAreLoading = useSelector((state) => state.books.allBooks.isLoading);
   const [currentFilter, setCurrentFilter] = useState("");
-  useEffect(() => {
-    dispatch(getCategories());
-    dispatch(getBooks("?created_at_gt=" + newd + "&_sort=created_at:ASC"));
-  }, []);
-
-  if (booksAreLoading)
-    return (
-      <span className="f1 font-bold text-green">Chargement de livres...</span>
-    );
-
-  const filtrer = (value) => (e) => {
-    dispatch(getBooks(value));
-
-    setCurrentFilter(e.currentTarget.dataset.id);
-  };
-
   const date = new Date(Date.now());
   const previousMonth = new Date(
     date.getFullYear(),
@@ -38,6 +22,23 @@ const Browse = (props) => {
     ("0" + (previousMonth.getMonth() + 1)).slice(-2) +
     "-" +
     ("0" + previousMonth.getDate()).slice(-2);
+
+  useEffect(() => {
+    dispatch(getCategories());
+    dispatch(getBooks("?created_at_gt=" + newd + "&_sort=created_at:ASC"));
+  }, []);
+
+  if (!booksAreLoading)
+    return (
+      <span className="f1 font-bold text-green">Chargement de livres...</span>
+    );
+
+  const filtrer = (value) => (e) => {
+    dispatch(getBooks(value));
+
+    setCurrentFilter(e.currentTarget.dataset.id);
+  };
+
   return (
     <section>
       <ul>

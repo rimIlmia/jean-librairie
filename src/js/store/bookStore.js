@@ -7,8 +7,8 @@ export const getBooks = (filter) => {
         dispatch({ type: 'FETCH_BOOKS' });
 
         return api
-            .get(`livres${filter ? filter : ""}`)
-            .then(res=> dispatch({ type: 'SET_BOOKS', payload: res.data }))
+            .get(`/livres${filter ? filter : ""}`)
+            .then(res => dispatch({ type: 'SET_BOOKS', payload: res.data }))
             .catch(error => {
                 throw error;
             })
