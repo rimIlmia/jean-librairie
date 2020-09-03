@@ -9,9 +9,9 @@ module.exports = ({ env }) => ({
         port: 3306,
         username: "admin",
         password: "1234",
-        database: "jean-librairie"
+        database: "jean-librairie",
       },
-      options: {}
-    }
-  }
+      options: {},
+    },
+  },
 });
