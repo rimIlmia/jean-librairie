@@ -5,10 +5,13 @@ import { getCategories } from "../store/categorieStore";
 import "../../sass/browse.css";
 
 const Browse = (props) => {
+  const URL = "http://localhost:1337";
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories.collection);
   const books = useSelector((state) => state.books.allBooks.books);
-  const booksAreLoading = useSelector((state) => state.books.allBooks.isLoading);
+  const booksAreLoading = useSelector(
+    (state) => state.books.allBooks.isLoading
+  );
   const [currentFilter, setCurrentFilter] = useState("");
   const date = new Date(Date.now());
   const previousMonth = new Date(
@@ -83,6 +86,10 @@ const Browse = (props) => {
                 <div className="p-4">
                   <span className="font-bold uppercases f4">{book.titre}</span>
                   <p className="lh-4">{book.resume}</p>
+
+                  <img
+                    src={book.image != null ? `${URL}${book.image.url}` : ""}
+                  />
                 </div>
                 <hr className="m-0" />
               </li>
