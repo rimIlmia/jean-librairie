@@ -5773,13 +5773,13 @@
                 "langue": {
                   "type": "string"
                 },
-                "categorie": {
-                  "type": "string"
-                },
                 "auteur": {
                   "type": "string"
                 },
                 "empreint": {
+                  "type": "string"
+                },
+                "categorie": {
                   "type": "string"
                 },
                 "created_by": {
@@ -5925,6 +5925,52 @@
           "nom": {
             "type": "string"
           },
+          "livres": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titre": {
+                  "type": "string"
+                },
+                "resume": {
+                  "type": "string"
+                },
+                "date_publication": {
+                  "type": "string"
+                },
+                "disponibilte": {
+                  "type": "boolean"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "langue": {
+                  "type": "string"
+                },
+                "auteur": {
+                  "type": "string"
+                },
+                "empreint": {
+                  "type": "string"
+                },
+                "categorie": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "created_by": {
             "required": [
               "id",
@@ -6023,6 +6069,12 @@
           "nom": {
             "type": "string"
           },
+          "livres": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "created_by": {
             "type": "string"
           },
@@ -6065,13 +6117,13 @@
               "langue": {
                 "type": "string"
               },
-              "categorie": {
-                "type": "string"
-              },
               "auteur": {
                 "type": "string"
               },
               "empreint": {
+                "type": "string"
+              },
+              "categorie": {
                 "type": "string"
               },
               "created_by": {
@@ -6684,26 +6736,6 @@
               "al"
             ]
           },
-          "categorie": {
-            "required": [
-              "id",
-              "nom"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "nom": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "auteur": {
             "required": [
               "id",
@@ -6759,6 +6791,32 @@
               },
               "date_retour": {
                 "type": "datetime"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "categorie": {
+            "required": [
+              "id",
+              "nom"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "nom": {
+                "type": "string"
+              },
+              "livres": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "created_by": {
                 "type": "string"
@@ -6884,13 +6942,13 @@
               "al"
             ]
           },
-          "categorie": {
-            "type": "string"
-          },
           "auteur": {
             "type": "string"
           },
           "empreint": {
+            "type": "string"
+          },
+          "categorie": {
             "type": "string"
           },
           "created_by": {

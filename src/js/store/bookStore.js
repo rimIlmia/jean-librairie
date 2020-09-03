@@ -2,12 +2,12 @@ import { combineReducers } from "redux";
 import api from '../utils/api';
 
 
-export const getBooks = () => {
+export const getBooks = (filter) => {
     return dispatch => {
         dispatch({ type: 'FETCH_BOOKS' });
 
         return api
-            .get('livres')
+            .get(`livres${filter ? filter : ""}`)
             .then(res=> dispatch({ type: 'SET_BOOKS', payload: res.data }))
             .catch(error => {
                 throw error;
