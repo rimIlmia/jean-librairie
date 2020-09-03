@@ -15,12 +15,12 @@ export const getBooks = () => {
     }
 }
 
-export const getBorrowedBooks = () => {
+export const getBorrowedBooks = (userId) => {
     return dispatch => {   
         dispatch({ type: 'FETCH_BORROWED_BOOKS' });
         
         return api
-            .get('empreints')
+            .get(`empreints?utilisateur.id=${userId}`)
             .then(res => dispatch({ type: 'SET_BORROWED_BOOKS', payload: res.data }))
             .catch(err => console.log(err))
     }
@@ -45,7 +45,7 @@ export const borrowBook = (get, userId, id) => {
                     api.put(`livres/${id.id}`, { disponibilte: false })
                     .then(result => {
                         getBooks()
-                        getBorrowedBooks()
+                        getBorrowedBooks(userId)
                     })
                     .catch(err => console.log(err))
             })
@@ -60,7 +60,7 @@ export const borrowBook = (get, userId, id) => {
                 api.put(`livres/${id.bookId}`, { disponibilte: true })
                 .then(result =>  {
                     getBooks()
-                    getBorrowedBooks()
+                    getBorrowedBooks(userId)
                 })
                 .catch(err => console.log(err))
             })
