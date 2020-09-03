@@ -563,6 +563,9 @@
                 "categorie": {
                   "type": "string"
                 },
+                "image": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
