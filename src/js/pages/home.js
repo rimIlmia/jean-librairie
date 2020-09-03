@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import About from './about';
 
 const Home = () => {
 
@@ -7,6 +8,7 @@ const Home = () => {
     const books = useSelector(state => state.books.allBooks.books);
 
     return (
+        <>
         <div>
             <h1>Welcome to library</h1>
             { booksLoad && books.map((book, i) => {
@@ -20,6 +22,10 @@ const Home = () => {
                     })
             }
         </div>
+        <About />
+        </>
+
+        
             )
 }
 
