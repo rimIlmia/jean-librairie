@@ -15,3 +15,23 @@
 .vnav {
   list-style: none;
 }
+table {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(164, 161, 161);
+  border-radius: 1em !important;
+}
+td {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(164, 161, 161);
+  padding: 1rem;
+}
+th {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(164, 161, 161);
+  padding: 1rem;
+  background-color: #241f43 !important;
+  color: #fff;
+}

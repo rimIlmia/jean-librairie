@@ -18,7 +18,7 @@ const Borrowed = () => {
   }, [borrowedBooksLoad]);
 
   return (
-    <div>
+    <div className="container">
       <section className="borrowedBooks">
         <h5>You have to return </h5>
         <div className="row">
@@ -49,7 +49,7 @@ const Borrowed = () => {
                         {date.toLocaleString("fr-FR", { timeZone: "UTC" })}
                       </div>
                       <button
-                        className="btn-retour btn"
+                        className="btn-violet btn"
                         onClick={() =>
                           dispatch(
                             borrowBook("return", userId, {

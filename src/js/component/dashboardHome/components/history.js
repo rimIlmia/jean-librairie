@@ -15,11 +15,11 @@ const Historybook = () => {
   }, [borrowedBooksLoad]);
 
   return (
-    <div>
-      <h1>history </h1>
+    <div className="container">
+      <h5 className="color-violet mb-3">ALL books borrowed </h5>
 
-      <table>
-        <thead>
+      <table className="border">
+        <thead className="border">
           <tr>
             <th>Titre</th>
             <th>Date D'enpreint</th>

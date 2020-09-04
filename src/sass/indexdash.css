@@ -9,9 +9,10 @@
 }
 .link-hnav:hover {
   text-decoration: none !important;
-  color: #241f43;
+  color: #241f43 !important;
 }
-.link-vnav {
+.link-hnav {
   color: #241f43;
+  font-weight: bold;
   border-radius: 2em !important;
 }
