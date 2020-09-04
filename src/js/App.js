@@ -46,16 +46,11 @@ const App = () => {
           <Route exact path="/">
             {logged ? <Redirect to="/dashboard/mybooks/" /> : <Home />}
           </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/browse">
-            <Browse />
-          </Route>
-          <RouteGuard path="/dashboard" component={Dashboard} />
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
+          <Route path="/browse" component={Browse} />
+          <Route path="/book/:slug" component={Browse} />
+          <RouteGuard path="/dashboard" component={Dashboard} log={logged} />
         </Switch>
       </div>
     </Router>
