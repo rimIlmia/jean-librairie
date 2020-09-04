@@ -6,7 +6,7 @@ module.exports = ({ env }) => ({
       settings: {
         client: "mysql",
         host: "localhost",
-        port: 3306,
+        port: 3308,
         username: "root",
         password: "",
         database: "jean-librairie",
