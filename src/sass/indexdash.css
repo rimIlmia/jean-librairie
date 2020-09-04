@@ -1,0 +1,17 @@
+.border-rounded {
+  border-radius: 2em;
+  list-style: none;
+}
+.btn-hnav {
+  background: rgba(36, 31, 67, 0.7);
+  border-radius: 2em !important;
+  color: #fff !important;
+}
+.link-hnav:hover {
+  text-decoration: none !important;
+  color: #241f43;
+}
+.link-vnav {
+  color: #241f43;
+  border-radius: 2em !important;
+}

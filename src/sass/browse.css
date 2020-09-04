@@ -1,6 +1,29 @@
-.red {
-  color: red;
+.selected {
+  background-color: #feda75 !important;
+  color: #241f43 !important;
+  border-radius: 1em !important;
 }
-.blue {
-  color: blue;
+.no-selected {
+  color: #241f43 !important;
+  border-radius: 1em !important;
+  border-color: #241f43;
+  border: solid 1px !important;
+}
+.filter {
+  list-style: none;
+}
+.item-book {
+  border-radius: 2em !important;
+}
+.img-book {
+  border-top-left-radius: 2em !important;
+  border-top-right-radius: 2em !important;
+  height: 230px;
+  width: 280px;
+}
+.titre-book {
+  font-size: 1.4rem;
+}
+.auteur {
+  font-size: 0.8rem;
 }

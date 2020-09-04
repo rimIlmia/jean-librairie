@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getBooks } from "../store/bookStore";
 import { getCategories } from "../store/categorieStore";
 import "../../sass/browse.css";
+import defaultCover from "../../asset/images/default-cover.png";
 
 const Browse = (props) => {
   const URL = "http://localhost:1337";
@@ -43,62 +44,83 @@ const Browse = (props) => {
   };
 
   return (
-    <section>
-      <ul>
-        <li
-          className={currentFilter == 0 ? "red" : "blue"}
+    <section className="container ">
+      <h5 className="color-violet font-weight-bold">Browse books</h5>
+      <div className="filter my-3 ">
+        <span className="mr-2 font-weight-bold">Genre:</span>
+        <span
+          className={
+            currentFilter == 0
+              ? "btn selected mr-2 font-weight-bold"
+              : "btn no-selected mr-2"
+          }
           onClick={filtrer("?created_at_gt=" + newd + "&_sort=created_at:ASC")}
           data-id="0"
         >
           Nouveau
-        </li>
-
+        </span>
         {categories && categories.length > 0 ? (
           categories.map((cat, index) => {
             if (cat.livres.length > 0)
               return (
-                <li
-                  className={currentFilter == index + 1 ? "red" : "blue"}
+                <span
+                  className={
+                    currentFilter == index + 1
+                      ? "btn selected mr-2 font-weight-bold"
+                      : "btn no-selected mr-2"
+                  }
                   key={cat.id}
                   onClick={filtrer("?categorie.id=" + cat.id)}
                   data-id={index + 1}
                 >
                   {cat.nom}
-                </li>
+                </span>
               );
           })
         ) : (
           <span></span>
         )}
-        <li
+        <span
           onClick={filtrer("")}
           data-id={-1}
-          className={currentFilter == -1 ? "red" : "blue"}
+          className={
+            currentFilter == -1
+              ? "btn selected mr-2 font-weight-bold"
+              : "btn no-selected mr-2"
+          }
         >
           Tout
-        </li>
-      </ul>
-      <ul className="flex flex-col">
+        </span>
+      </div>
+      <div className="row ">
         {books && books.length > 0 ? (
           books.map((book) => {
             return (
-              <li className="" key={book.id}>
-                <div className="p-4">
-                  <span className="font-bold uppercases f4">{book.titre}</span>
-                  <p className="lh-4">{book.resume}</p>
-
-                  <img
-                    src={book.image != null ? `${URL}${book.image.url}` : ""}
-                  />
+              <div className="col-md-3 col-sm-12 p-3  " key={book.id}>
+                <div className="p-2 border item-book">
+                  <div className="d-flex justify-content-center pt-3 pb-2 ">
+                    <img
+                      className="img-book "
+                      src={
+                        book.image != null
+                          ? `${URL}${book.image.url}`
+                          : `${defaultCover}`
+                      }
+                    />
+                  </div>{" "}
+                  <div className="titre-book">{book.titre}</div>
+                  <div className="mb-4 auteur ">
+                    {book.auteur.nom}
+                    {book.auteur.prenom}
+                  </div>
                 </div>
-                <hr className="m-0" />
-              </li>
+              </div>
             );
           })
         ) : (
           <span>No books</span>
         )}
-      </ul>
+      </div>
     </section>
   );
 };

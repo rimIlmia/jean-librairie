@@ -1,0 +1,12 @@
+.btn-vnav {
+  background-color: #241f43 !important;
+  border-radius: 2em !important;
+  color: #fff !important;
+}
+.link-vnav:hover {
+  text-decoration: none !important;
+  color: #241f43;
+}
+.link-vnav {
+  color: #241f43;
+}

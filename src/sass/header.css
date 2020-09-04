@@ -1,0 +1,19 @@
+.li-cnx {
+  display: inline;
+  margin-right: 1rem;
+}
+header {
+  float: right;
+  margin-top: 1.5rem;
+  margin-right: 2rem;
+}
+
+.color-white {
+  color: white !important;
+}
+.myLink:hover {
+  text-decoration: none !important;
+}
+.btn-shadow {
+  box-shadow: 5px 3px 1px 1px #000 !important;
+}

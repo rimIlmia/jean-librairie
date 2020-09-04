@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome to library</h1>
+    <div className="container">
+      <h1 className="d-flex justify-content-center pt-5 ">Jean Librairie</h1>
     </div>
   );
 };
