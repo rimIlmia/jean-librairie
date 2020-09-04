@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import api from '../utils/api';
 
 const Register = () => {
 
+    const history = useHistory();
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState(null);
     const [nom, setNom] = useState('');
@@ -29,7 +31,10 @@ const Register = () => {
 
         api.post('auth/local/register', body)
         .then(response => {
-            setMessage(response.data.message)
+            setMessage("Great! you can login now, redirect...");
+            const waitRedirect = setTimeout(() => {
+                history.push('/login');
+            }, 3000);
         })
         .catch(err => {
             setMessage(err.response.data.message);

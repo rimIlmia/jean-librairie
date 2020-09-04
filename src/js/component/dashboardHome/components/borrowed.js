@@ -6,14 +6,16 @@ import { getBorrowedBooks, borrowBook } from '../../../store/bookStore';
 const Borrowed = () => {
 
 
-    const dispatch = useDispatch();
     const userId = useSelector(state => state.auth.user.detail.id);
+    const dispatch = useDispatch();
     const borrowedBooksLoad = useSelector(state => state.books.borrowedBooks.isLoading);
     const booksBorrowed = useSelector(state => state.books.borrowedBooks.books);
 
     useEffect(() => {
-        dispatch(getBorrowedBooks(userId))   
-    }, [borrowedBooksLoad])
+        if(userId != undefined){
+            dispatch(getBorrowedBooks(userId))  
+        } 
+    }, [userId])
 
 
     return (

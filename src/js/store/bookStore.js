@@ -98,7 +98,7 @@ const borrowedBooks = (state = defaultBorrowedBooks, action) => {
 const booksFunction = (state = false, action) => {
     const booksFuntionAction = {
         "FETCH_BOOKS": true,
-        "BORROW_BOOK": true
+        "BORROW_BOOK": true,
     }
     return booksFuntionAction[action.type] || state;
 }
